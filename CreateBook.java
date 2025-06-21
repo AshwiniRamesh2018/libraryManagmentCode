@@ -51,13 +51,31 @@ public class CreateBook {
 					int result1 = pr.executeUpdate();
 
 					if (result1 > 0) {
-						System.out.println("Record inserted sucessfully");
-					} else
+						System.out.println("Record inserted sucessfully ");
+						
+						while (result1 > 0) {
+						System.out.println("Do want to continue edit \nenter yes or no");
+						String value=sc.next();
+						
+						if(value.equals("yes")|| value.equals("Yes")  || value.equals("YES")) {
+							return;
+						}
+						else if (value.equals("No") || value.equals("no") || value.equals("NO")) {
+							System.exit(0);
+						}
+						else System.out.println("you enterd invalid input");
+						
+						}
+					
+						}
+						
+					else
 						System.out.println("not inserted");
 				} 
 					
+			}
 
-		} 
+			
 
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
